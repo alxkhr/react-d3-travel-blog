@@ -1,0 +1,11 @@
+* logs
+npm-debug.log*
+
+# deps
+node_modules
+
+# build
+dist
+
+# mac
+**/.DS_Store

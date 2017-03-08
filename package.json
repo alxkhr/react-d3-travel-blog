@@ -1,0 +1,29 @@
+{
+  "name": "react-d3-travel-blog",
+  "version": "0.0.1",
+  "description": "A very simple travel blog, made of react and d3.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve ./dist",
+    "build": "webpack --progress"
+  },
+  "author": "Alexander Kehr",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^4.7.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "topojson-client": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-env": "^1.2.1",
+    "babel-preset-react": "^6.23.0",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.28.0",
+    "json-loader": "^0.5.4",
+    "serve": "^4.0.1",
+    "webpack": "^2.2.1"
+  }
+}
