@@ -15,7 +15,10 @@ const config = {
       }, {
         test: /\.html$/,
         use: 'html-loader'
-      }
+      }, {
+        test: /\.(jpg|png)$/,
+        use: 'url-loader',
+      },
     ]
   },
   plugins: [
