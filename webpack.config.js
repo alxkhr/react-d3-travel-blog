@@ -25,7 +25,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       minify: { collapseWhitespace: true },
-      favicon: './assets/favicon.ico'
+      favicon: './favicon.ico'
     }),
   ]
 };
