@@ -108,25 +108,37 @@ export default class Globe extends Component {
     const startPoint = this.projection([lon, lat]);
     const endPoint = this.projectionOrbit([lon, lat]);
     const active = key === activePin;
-    const pin = [
+    const pin = [];
+    pin.push(
       <defs>
         <pattern id={key} width="1" height="1">
           <image xlinkHref={images[key]} x="0" y="0" width="50" height="50" />
         </pattern>
-      </defs>,
-      <line
-        key={`pinline${key}`}
-        x1={startPoint[0]}
-        y1={startPoint[1]}
-        x2={endPoint[0]}
-        y2={endPoint[1]}
-        style={{ stroke: 'red' }}
-      />,
+      </defs>
+    );
+    if (!active) {
+      pin.push(
+        <line
+          key={`pinline${key}`}
+          x1={startPoint[0]}
+          y1={startPoint[1]}
+          x2={endPoint[0]}
+          y2={endPoint[1]}
+          style={{ stroke: 'currentColor' }}
+        />
+      );
+    }
+    pin.push(
       <circle
         cx={active ? Math.round(endPoint[0]) : endPoint[0]}
         cy={active ? Math.round(endPoint[1]) : endPoint[1]}
         r={active ? 25 : 5}
-        style={{ stroke: 'red', fill: active ? `url(#${key})` : 'white' }}
+        style={{
+          stroke: active ? 'white' : 'currentColor',
+          fill: active ? `url(#${key})` : 'white',
+          strokeWidth: active ? '3' : 'inherit',
+          cursor: 'pointer',
+        }}
         onMouseEnter={() => {
           this.setState({ activePin: key });
         }}
@@ -135,14 +147,24 @@ export default class Globe extends Component {
           if (this.rotating) clearTimeout(this.rotating);
           this.rotating = setTimeout(this.rotate, 1500);
         }}
-      />,
-    ];
+        onClick={() => {
+          alert('clicked ' + key);
+        }}
+      />
+    );
     if (active) {
       pin.push(
         <text
-          x={endPoint[0] + 30}
-          y={endPoint[1] + 5}
-          style={{ fill: 'black' }}
+          x={endPoint[0]}
+          y={endPoint[1] + 25}
+          style={{
+            fill: 'currentColor',
+            textAnchor: 'middle',
+            fontSize: '.9rem',
+            transform: 'translateY(.9rem)',
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+          }}
         >
           {name}
         </text>
@@ -167,9 +189,9 @@ export default class Globe extends Component {
         >
           <path
             d={geoPath().projection(this.projection)(land)}
-            style={{ fill: '#ccc', stroke: 'none' }}
+            style={{ fill: '#91e8df', stroke: 'none' }}
           />
-          <g>{Object.keys(testPoints).map(this.renderPin)}</g>
+          <g style={{ color: '#000' }}>{Object.keys(testPoints).map(this.renderPin)}</g>
         </svg>
       </div>
     );
