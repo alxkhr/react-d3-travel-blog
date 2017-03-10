@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { feature } from 'topojson-client';
 import { geoOrthographic, geoPath } from 'd3-geo';
+import Pin from './pin';
 import world from './world.json';
 
 // TODO load from json
@@ -40,7 +41,6 @@ export default class Globe extends Component {
     this.onMouseUp = this.onMouseUp.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.rotate = this.rotate.bind(this);
-    this.renderPin = this.renderPin.bind(this);
   }
 
   componentDidMount() {
@@ -100,81 +100,8 @@ export default class Globe extends Component {
     this.rotating = setTimeout(this.rotate, 50);
   }
 
-  renderPin(key) {
-    const { lon, lat, date, name } = testPoints[key];
-    const { activePin, images } = this.state;
-    // create path only to verify that the point is on the visible hemisphere
-    if (!geoPath().projection(this.projection)({ type: "Point", coordinates: [lon, lat], id: key })) return null;
-    const startPoint = this.projection([lon, lat]);
-    const endPoint = this.projectionOrbit([lon, lat]);
-    const active = key === activePin;
-    const pin = [];
-    pin.push(
-      <defs>
-        <pattern id={key} width="1" height="1">
-          <image xlinkHref={images[key]} x="0" y="0" width="50" height="50" />
-        </pattern>
-      </defs>
-    );
-    if (!active) {
-      pin.push(
-        <line
-          key={`pinline${key}`}
-          x1={startPoint[0]}
-          y1={startPoint[1]}
-          x2={endPoint[0]}
-          y2={endPoint[1]}
-          style={{ stroke: 'currentColor' }}
-        />
-      );
-    }
-    pin.push(
-      <circle
-        cx={active ? Math.round(endPoint[0]) : endPoint[0]}
-        cy={active ? Math.round(endPoint[1]) : endPoint[1]}
-        r={active ? 25 : 5}
-        style={{
-          stroke: active ? 'white' : 'currentColor',
-          fill: active ? `url(#${key})` : 'white',
-          strokeWidth: active ? '3' : 'inherit',
-          cursor: 'pointer',
-        }}
-        onMouseEnter={() => {
-          this.setState({ activePin: key });
-        }}
-        onMouseLeave={() => {
-          this.setState({ activePin: -1 });
-          if (this.rotating) clearTimeout(this.rotating);
-          this.rotating = setTimeout(this.rotate, 1500);
-        }}
-        onClick={() => {
-          alert('clicked ' + key);
-        }}
-      />
-    );
-    if (active) {
-      pin.push(
-        <text
-          x={endPoint[0]}
-          y={endPoint[1] + 25}
-          style={{
-            fill: 'currentColor',
-            textAnchor: 'middle',
-            fontSize: '.9rem',
-            transform: 'translateY(.9rem)',
-            textTransform: 'uppercase',
-            letterSpacing: '2px',
-          }}
-        >
-          {name}
-        </text>
-      );
-    }
-    return pin;
-  }
-
   render() {
-    const { rotation } = this.state;
+    const { rotation, activePin, images } = this.state;
     this.projection.rotate([rotation, 0]);
     this.projectionOrbit.rotate([rotation, 0]);
     return (
@@ -191,7 +118,39 @@ export default class Globe extends Component {
             d={geoPath().projection(this.projection)(land)}
             style={{ fill: '#91e8df', stroke: 'none' }}
           />
-          <g style={{ color: '#000' }}>{Object.keys(testPoints).map(this.renderPin)}</g>
+          <g style={{ color: '#000' }}>
+            {Object.keys(testPoints).map(key => {
+              const { lon, lat, date, name } = testPoints[key];
+              // create path only to verify that the point is on the visible hemisphere
+              if (!geoPath().projection(this.projection)(
+                { type: "Point", coordinates: [testPoints[key].lon, testPoints[key].lat], id: key },
+              )) {
+                return null;
+              }
+              return (
+                <Pin
+                  key={`pin${key}`}
+                  pinKey={key}
+                  name={name}
+                  image={images[key]}
+                  startPoint={this.projection([lon, lat])}
+                  endPoint={this.projectionOrbit([lon, lat])}
+                  active={key === activePin}
+                  onMouseEnter={() => {
+                    this.setState({ activePin: key });
+                  }}
+                  onMouseLeave={() => {
+                    this.setState({ activePin: -1 });
+                    if (this.rotating) clearTimeout(this.rotating);
+                    this.rotating = setTimeout(this.rotate, 1500);
+                  }}
+                  onClick={() => {
+                    alert('clicked ' + key);
+                  }}
+                />
+              );
+            })}
+          </g>
         </svg>
       </div>
     );
