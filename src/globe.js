@@ -3,14 +3,7 @@ import { feature } from 'topojson-client';
 import { geoOrthographic, geoPath } from 'd3-geo';
 import Pin from './pin';
 import world from './world.json';
-
-// TODO load from json
-const testPoints = {
-  japan: { lon: 139.76, lat: 35.68, date: 'April 2016', name: 'Japan', thumb: 'japan_thumb.jpg' },
-  bali: { lon: 115.26, lat: -8.52, date: 'Oktober 2016', name: 'Bali', thumb: 'bali_thumb.jpg' },
-  srilanka: { lon: 80.63, lat: 7.29, date: 'Februar 2017', name: 'Sri Lanka', thumb: 'srilanka_thumb.jpg' },
-  cambodia: { lon: 103.86, lat: 13.36, date: 'September 2015', name: 'Kambodscha', thumb: 'cambodia_thumb.jpg' },
-};
+import posts from './posts.json';
 
 const width = 900;
 const height = 700;
@@ -45,8 +38,8 @@ export default class Globe extends Component {
 
   componentDidMount() {
     if (!this.rotating) this.rotating = setTimeout(this.rotate, 50);
-    Object.keys(testPoints).map(key => {
-      const { thumb } = testPoints[key];
+    Object.keys(posts).map(key => {
+      const { thumb } = posts[key];
       import(`../assets/${thumb}`)
         .then(image => {
           this.setState(({ images: prevImages }) => {
@@ -119,11 +112,11 @@ export default class Globe extends Component {
             style={{ fill: '#91e8df', stroke: 'none' }}
           />
           <g style={{ color: '#000' }}>
-            {Object.keys(testPoints).map(key => {
-              const { lon, lat, date, name } = testPoints[key];
+            {Object.keys(posts).map(key => {
+              const { lon, lat, date, name } = posts[key];
               // create path only to verify that the point is on the visible hemisphere
               if (!geoPath().projection(this.projection)(
-                { type: "Point", coordinates: [testPoints[key].lon, testPoints[key].lat], id: key },
+                { type: "Point", coordinates: [posts[key].lon, posts[key].lat], id: key },
               )) {
                 return null;
               }
