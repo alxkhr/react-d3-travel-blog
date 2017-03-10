@@ -4,12 +4,7 @@ import Blog from './blog';
 
 export default function MainPage() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
+    <div>
       <Globe />
       <Blog />
     </div>
