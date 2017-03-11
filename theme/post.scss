@@ -1,0 +1,29 @@
+@import './colors';
+@import './fonts';
+
+.post {
+  color: $color-text;
+  font-family: $font-block;
+
+  h1,
+  h2,
+  h3 {
+    font-family: $font-title;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: $color-highlight;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  blockquote {
+    background-color: $color-highlight-bg;
+    font-family: $font-personal;
+  }
+}

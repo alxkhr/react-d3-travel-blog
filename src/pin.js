@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
+import '../theme/pin.scss';
 
 export default function Pin({ pinKey, name, image, active, startPoint, endPoint, onMouseEnter, onMouseLeave, onClick }) {
   const pin = [];
   if (active) {
     return (
-      <g>
+      <g className="pin">
         {image &&
           <defs>
             <pattern id={`thumb${pinKey}`} width="1" height="1">
@@ -13,28 +14,17 @@ export default function Pin({ pinKey, name, image, active, startPoint, endPoint,
           </defs>
         }
         <circle
+          className="pin__thumb"
           cx={Math.round(endPoint[0])}
           cy={Math.round(endPoint[1])}
           r="25"
-          style={{
-            stroke: 'white',
-            fill: image ? `url(#thumb${pinKey})` : 'currentColor',
-            strokeWidth: '3',
-            cursor: 'pointer',
-          }}
+          style={{ fill: image ? `url(#thumb${pinKey})` : 'currentColor' }}
           {...{ onMouseLeave, onClick }}
         />
         <text
+          className="pin__text"
           x={endPoint[0]}
           y={endPoint[1] + 25}
-          style={{
-            fill: 'currentColor',
-            textAnchor: 'middle',
-            fontSize: '.9rem',
-            transform: 'translateY(.9rem)',
-            textTransform: 'uppercase',
-            letterSpacing: '2px',
-          }}
         >
           {name}
         </text>
@@ -44,17 +34,17 @@ export default function Pin({ pinKey, name, image, active, startPoint, endPoint,
   return (
     <g>
       <line
+        className="pin__line"
         x1={startPoint[0]}
         y1={startPoint[1]}
         x2={endPoint[0]}
         y2={endPoint[1]}
-        style={{ stroke: 'currentColor' }}
       />
       <circle
+        className="pin__circle"
         cx={endPoint[0]}
         cy={endPoint[1]}
         r="5"
-        style={{ stroke: 'currentColor', fill: 'white' }}
         {...{ onMouseEnter }}
       />
     </g>

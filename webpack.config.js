@@ -17,8 +17,14 @@ const config = {
         use: 'html-loader'
       }, {
         test: /\.(jpg|png)$/,
-        use: 'url-loader',
-      },
+        use: 'file-loader'
+      }, {
+        test: /\.md$/,
+        use: ['html-loader', 'markdown-loader']
+      }, {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
     ]
   },
   plugins: [

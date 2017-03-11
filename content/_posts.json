@@ -5,7 +5,7 @@
     "date": "Februar 2017",
     "name": "Sri Lanka",
     "thumb": "srilanka_thumb.jpg",
-    "post": "Testing content, soon there will be markdown files that get loaded (lazy)."
+    "post": "srilanka_post.md"
   },
   "bali": {
     "lon": 115.26,
@@ -13,7 +13,7 @@
     "date": "Oktober 2016",
     "name": "Bali",
     "thumb": "bali_thumb.jpg",
-    "post": "Testing content, soon there will be markdown files that get loaded (lazy)."
+    "post": "bali_post.md"
   },
   "japan": {
     "lon": 139.76,
@@ -21,7 +21,7 @@
     "date": "April 2016",
     "name": "Japan",
     "thumb": "japan_thumb.jpg",
-    "post": "Testing content, soon there will be markdown files that get loaded (lazy)."
+    "post": "japan_post.md"
   },
   "cambodia": {
     "lon": 103.86,
@@ -29,6 +29,6 @@
     "date": "September 2015",
     "name": "Kambodscha",
     "thumb": "cambodia_thumb.jpg",
-    "post": "Testing content, soon there will be markdown files that get loaded (lazy)."
+    "post": "cambodia_post.md"
   }
 }

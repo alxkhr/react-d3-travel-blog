@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from './post';
-import posts from './posts.json';
+import posts from '../content/_posts.json';
 
 export default function Blog() {
   return (

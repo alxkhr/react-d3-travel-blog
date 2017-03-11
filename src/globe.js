@@ -3,7 +3,8 @@ import { feature } from 'topojson-client';
 import { geoOrthographic, geoPath } from 'd3-geo';
 import Pin from './pin';
 import world from './world.json';
-import posts from './posts.json';
+import posts from '../content/_posts.json';
+import '../theme/globe.scss';
 
 const width = 900;
 const height = 700;
@@ -40,7 +41,7 @@ export default class Globe extends Component {
     if (!this.rotating) this.rotating = setTimeout(this.rotate, 50);
     Object.keys(posts).map(key => {
       const { thumb } = posts[key];
-      import(`../assets/${thumb}`)
+      import(`../content/${thumb}`)
         .then(image => {
           this.setState(({ images: prevImages }) => {
             const images = Object.assign({}, prevImages);
@@ -48,7 +49,7 @@ export default class Globe extends Component {
             return { images };
           })
         })
-        .catch(err => console.log(`Failed to load image "../assets/${thumb}"`, err));
+        .catch(err => console.log(`Failed to load image "../content/${thumb}"`, err));
     });
   }
 
@@ -98,7 +99,7 @@ export default class Globe extends Component {
     this.projection.rotate([rotation, 0]);
     this.projectionOrbit.rotate([rotation, 0]);
     return (
-      <div>
+      <div className="globe">
         <svg
           {...{ width, height }}
           onMouseDown={this.onMouseDown}
@@ -109,9 +110,9 @@ export default class Globe extends Component {
         >
           <path
             d={geoPath().projection(this.projection)(land)}
-            style={{ fill: '#91e8df', stroke: 'none' }}
+            className="globe__land"
           />
-          <g style={{ color: '#000' }}>
+          <g className="globe__pins">
             {Object.keys(posts).map(key => {
               const { lon, lat, date, name } = posts[key];
               // create path only to verify that the point is on the visible hemisphere
