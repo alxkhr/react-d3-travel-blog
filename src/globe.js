@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { feature } from 'topojson-client';
 import { geoOrthographic, geoPath } from 'd3-geo';
+import { browserHistory } from 'react-router';
 import Pin from './pin';
 import world from './world.json';
 import posts from '../content/_posts.json';
@@ -96,6 +97,7 @@ export default class Globe extends Component {
 
   render() {
     const { rotation, activePin, images } = this.state;
+    const { children } = this.props;
     this.projection.rotate([rotation, 0]);
     this.projectionOrbit.rotate([rotation, 0]);
     return (
@@ -139,14 +141,19 @@ export default class Globe extends Component {
                     this.rotating = setTimeout(this.rotate, 1500);
                   }}
                   onClick={() => {
-                    alert('clicked ' + key);
+                    browserHistory.push(`/${key}`);
                   }}
                 />
               );
             })}
           </g>
         </svg>
+        {children}
       </div>
     );
   }
 }
+
+Globe.propTypes = {
+  children: PropTypes.node,
+};

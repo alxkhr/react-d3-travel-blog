@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import '../theme/pin.scss';
 
-export default function Pin({ pinKey, name, image, active, startPoint, endPoint, onMouseEnter, onMouseLeave, onClick }) {
+export default function Pin({ pinKey, name, image, active, startPoint, endPoint, onMouseEnter,
+  onMouseLeave, onClick }) {
   const pin = [];
   if (active) {
     return (
