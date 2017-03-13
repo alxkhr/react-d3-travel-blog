@@ -4,6 +4,7 @@
 .post {
   color: $color-text;
   font-family: $font-block;
+  font-size: 1.2rem;
 
   h1,
   h2,
@@ -13,8 +14,21 @@
     text-transform: uppercase;
   }
 
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
   a {
     color: $color-highlight;
+    font-weight: bold;
     text-decoration: none;
 
     &:hover {
@@ -23,7 +37,14 @@
   }
 
   blockquote {
+    margin: 0;
+    padding: .5rem 1rem;
     background-color: $color-highlight-bg;
     font-family: $font-personal;
+    font-size: 1.5em;
+
+    p {
+      margin: .5rem 0;
+    }
   }
 }

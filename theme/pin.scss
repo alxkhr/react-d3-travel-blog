@@ -1,11 +1,11 @@
 @import './colors';
+@import './fonts';
 $white: #fff;
 
 .pin__text {
-  transform: translateY(.9rem);
-  font-size: .9rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  transform: translateY(1.2rem);
+  font-family: $font-block;
+  font-size: 1.2rem;
   text-anchor: middle;
   fill: $color-text;
 }

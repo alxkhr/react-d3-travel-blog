@@ -1,0 +1,11 @@
+@import './fonts';
+
+.main-page__title {
+  display: flex;
+  justify-content: center;
+
+  h1 {
+    font-family: $font-personal;
+    font-size: 3rem;
+  }
+}
