@@ -41,8 +41,8 @@ export default class Globe extends Component {
   componentDidMount() {
     if (!this.rotating) this.rotating = setTimeout(this.rotate, 50);
     Object.keys(posts).map(key => {
-      const { thumb } = posts[key];
-      import(`../content/${thumb}`)
+      const { thumb, folder } = posts[key];
+      import(`../content${folder}${thumb}`)
         .then(image => {
           this.setState(({ images: prevImages }) => {
             const images = Object.assign({}, prevImages);
@@ -50,7 +50,7 @@ export default class Globe extends Component {
             return { images };
           })
         })
-        .catch(err => console.log(`Failed to load image "../content/${thumb}"`, err));
+        .catch(err => console.log(`Failed to load image "../content${folder}${thumb}"`, err));
     });
   }
 
@@ -116,7 +116,7 @@ export default class Globe extends Component {
           />
           <g className="globe__pins">
             {Object.keys(posts).map(key => {
-              const { lon, lat, date, name } = posts[key];
+              const { lon, lat, date, title } = posts[key];
               // create path only to verify that the point is on the visible hemisphere
               if (!geoPath().projection(this.projection)(
                 { type: "Point", coordinates: [posts[key].lon, posts[key].lat], id: key },
@@ -127,7 +127,7 @@ export default class Globe extends Component {
                 <Pin
                   key={`pin${key}`}
                   pinKey={key}
-                  name={name}
+                  name={title}
                   image={images[key]}
                   startPoint={this.projection([lon, lat])}
                   endPoint={this.projectionOrbit([lon, lat])}

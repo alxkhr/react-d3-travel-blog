@@ -31,17 +31,18 @@ export default class Post extends Component {
   }
 
   loadPost() {
-    import(`../content/${this.meta.post}`)
+    const { post, folder } = this.meta;
+    import(`../content${folder}${post}`)
       .then(post => this.setState({ content: post }))
-      .catch((err, post) => console.log(`Failed to load post "../content/${post}"`, err));
+      .catch((err, post) => console.log(`Failed to load markdown file "../content${folder}${post}"`, err));
   }
 
   render() {
-    const { date, name } = this.meta;
+    const { date, title } = this.meta;
     const { content } = this.state;
     return (
       <div ref={c => { if (c) this.ref = c; }} className="post">
-        <h2>{name}</h2>
+        <h2>{title}</h2>
         <p>{date}</p>
         {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
       </div>

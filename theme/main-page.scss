@@ -1,5 +1,11 @@
 @import './fonts';
 
+.main {
+  display: flex;
+  justify-content: center;
+  min-width: 900px; // TODO make it responsive!
+}
+
 .main-page__title {
   display: flex;
   justify-content: center;
