@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-  entry: './src/index.js',
+  entry: ['./src/index.js', './_redirects'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -24,6 +24,9 @@ const config = {
       }, {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      }, {
+        test: /_redirects/,
+        use: 'file-loader?name=[name]'
       }
     ]
   },
