@@ -9,7 +9,7 @@ export default class Post extends Component {
       content: null,
     };
     this.ref = null;
-    this.meta = posts[props.params.postKey];
+    this.meta = posts[props.match.params.postKey];
     this.loadPost = this.loadPost.bind(this);
   }
 
@@ -18,8 +18,8 @@ export default class Post extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (nextProps.params.postKey !== this.props.params.postKey) {
-      this.meta = posts[nextProps.params.postKey];
+    if (nextProps.match.params.postKey !== this.props.match.params.postKey) {
+      this.meta = posts[nextProps.match.params.postKey];
       this.loadPost();
     }
   }
@@ -50,5 +50,5 @@ export default class Post extends Component {
 }
 
 Post.propTypes = {
-  params: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 }

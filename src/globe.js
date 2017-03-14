@@ -97,7 +97,7 @@ export default class Globe extends Component {
 
   render() {
     const { rotation, activePin, images } = this.state;
-    const { children } = this.props;
+    const { history } = this.props;
     this.projection.rotate([rotation, 0]);
     this.projectionOrbit.rotate([rotation, 0]);
     return (
@@ -141,19 +141,18 @@ export default class Globe extends Component {
                     this.rotating = setTimeout(this.rotate, 1500);
                   }}
                   onClick={() => {
-                    browserHistory.push(`/${key}`);
+                    history.push(`/${key}`);
                   }}
                 />
               );
             })}
           </g>
         </svg>
-        {children}
       </div>
     );
   }
 }
 
 Globe.propTypes = {
-  children: PropTypes.node,
+  history: PropTypes.object.isRequired,
 };
