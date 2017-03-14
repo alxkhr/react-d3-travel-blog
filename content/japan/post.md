@@ -1,3 +1,5 @@
+![alt text](./img_01.jpg)
+
 ## Japan
 
 Testinhalt *kursiv* **fett** [Link](http://alexanderkehr.de)
@@ -12,4 +14,4 @@ Text
 >
 > -- <cite>Benjamin Franklin</cite>
 
-![alt text](./img01.jpg)
+![alt text](./img_02.jpg)

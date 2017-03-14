@@ -1,3 +1,5 @@
+![alt text](./img_01.jpg)
+
 ## Kambodscha
 
 Testinhalt *kursiv* **fett** [Link](http://alexanderkehr.de)

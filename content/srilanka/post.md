@@ -1,3 +1,5 @@
+![alt text](./img_01.jpg)
+
 ## Sri Lanka
 
 Testinhalt *kursiv* **fett** [Link](http://alexanderkehr.de)
@@ -7,3 +9,5 @@ Testinhalt *kursiv* **fett** [Link](http://alexanderkehr.de)
 - unsorted list item 4
 
 > Quote here.
+
+![alt text](./img_02.jpg)
