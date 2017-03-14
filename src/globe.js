@@ -116,7 +116,7 @@ export default class Globe extends Component {
           />
           <g className="globe__pins">
             {Object.keys(posts).map(key => {
-              const { lon, lat, date, title } = posts[key];
+              const { lon, lat, title } = posts[key];
               // create path only to verify that the point is on the visible hemisphere
               if (!geoPath().projection(this.projection)(
                 { type: "Point", coordinates: [posts[key].lon, posts[key].lat], id: key },

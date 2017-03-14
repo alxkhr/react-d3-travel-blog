@@ -3,7 +3,8 @@
     "title": "Sri Lanka",
     "lon": 80.63,
     "lat": 7.29,
-    "date": "Februar 2017",
+    "month": "Februar",
+    "year": "2017",
     "folder": "/srilanka/",
     "thumb": "thumb.jpg",
     "preview": "preview.md",
@@ -13,27 +14,33 @@
     "title": "Bali",
     "lon": 115.26,
     "lat": -8.52,
-    "date": "Oktober 2016",
-    "folder": "/",
-    "thumb": "bali_thumb.jpg",
-    "post": "bali_post.md"
+    "month": "Oktober",
+    "year": "2016",
+    "folder": "/bali/",
+    "thumb": "thumb.jpg",
+    "preview": "preview.md",
+    "post": "post.md"
   },
   "japan": {
     "title": "Japan",
     "lon": 139.76,
     "lat": 35.68,
-    "date": "April 2016",
-    "folder": "/",
-    "thumb": "japan_thumb.jpg",
-    "post": "japan_post.md"
+    "month": "April",
+    "year": "2016",
+    "folder": "/japan/",
+    "thumb": "thumb.jpg",
+    "preview": "preview.md",
+    "post": "post.md"
   },
   "cambodia": {
     "title": "Kambodscha",
     "lon": 103.86,
     "lat": 13.36,
-    "date": "September 2015",
-    "folder": "/",
-    "thumb": "cambodia_thumb.jpg",
-    "post": "cambodia_post.md"
+    "month": "September",
+    "year": "2015",
+    "folder": "/cambodia/",
+    "thumb": "thumb.jpg",
+    "preview": "preview.md",
+    "post": "post.md"
   }
 }
