@@ -1,4 +1,10 @@
 {
   "presets": [["env", { "modules": false }], "react"],
-  "plugins": ["syntax-dynamic-import"]
+  "plugins": ["syntax-dynamic-import"],
+  "env": {
+    "test": {
+      "presets": ["env", "react"],
+      "plugins": ["dynamic-import-node"]
+    }
+  }
 }
