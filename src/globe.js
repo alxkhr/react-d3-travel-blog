@@ -7,7 +7,7 @@ import world from './world.json';
 import posts from '../content/_posts.json';
 import '../theme/globe.scss';
 
-const width = 900;
+const width = 1000;
 const height = 700;
 const radius1 = height / 2 - 40;
 const radius2 = height / 2 - 10;
