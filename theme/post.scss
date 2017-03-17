@@ -1,50 +1,10 @@
-@import './colors';
-@import './fonts';
+@import './mixins';
 
 .post {
-  color: $color-text;
-  font-family: $font-block;
-  font-size: 1.2rem;
+  @include block-content;
 
-  h1,
-  h2,
-  h3 {
-    font-family: $font-title;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    font-size: 2.5em;
-  }
-
-  h2 {
-    font-size: 2em;
-  }
-
-  h3 {
-    font-size: 1.5em;
-  }
-
-  a {
-    color: $color-highlight;
-    font-weight: bold;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  blockquote {
-    margin: 0;
-    padding: .5rem 1rem;
-    background-color: $color-highlight-bg;
-    font-family: $font-personal;
-    font-size: 1.5em;
-
-    p {
-      margin: .5rem 0;
-    }
+  img {
+    width: 1000px; // TODO responsive
+    min-height: 500px; // TODO responsive
   }
 }

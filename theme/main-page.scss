@@ -1,4 +1,5 @@
 @import './fonts';
+@import './colors';
 
 .main {
   display: flex;
@@ -11,7 +12,9 @@
   justify-content: center;
 
   h1 {
+    color: $color-text;
     font-family: $font-personal;
     font-size: 3rem;
+    font-weight: normal;
   }
 }

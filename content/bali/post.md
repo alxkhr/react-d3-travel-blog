@@ -1,6 +1,6 @@
-![alt text](./img_01.jpg)
+# Bali
 
-## Bali
+![alt text](./img_01.jpg)
 
 Testinhalt *kursiv* **fett** [Link](http://alexanderkehr.de)
 - unsorted list item 1
@@ -8,6 +8,6 @@ Testinhalt *kursiv* **fett** [Link](http://alexanderkehr.de)
 - unsorted list item 3
 - unsorted list item 4
 
-> Quote here.
+> Hier gefällt es mir!
 
 ![alt text](./img_02.jpg)

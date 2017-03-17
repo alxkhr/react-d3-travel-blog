@@ -1,5 +1,9 @@
 @import './colors';
 
+.globe {
+  width: 1000px; //TODO responsive
+}
+
 .globe__land {
   fill: $color-highlight-bg;
   stroke: none;

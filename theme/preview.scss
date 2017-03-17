@@ -1,0 +1,13 @@
+@import './mixins';
+
+.preview {
+  @include block-content;
+  width: 300px; //TODO responsive
+  margin-bottom: 50px; // TODO responsive
+
+  h1,
+  h2,
+  h3 {
+    font-size: 1.5em;
+  }
+}
