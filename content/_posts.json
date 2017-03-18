@@ -8,7 +8,8 @@
     "folder": "/srilanka/",
     "thumb": "thumb.jpg",
     "preview": "preview.md",
-    "post": "post.md"
+    "post": "post.md",
+    "suggestions": ["cambodia"]
   },
   "bali": {
     "title": "Bali",
@@ -19,7 +20,8 @@
     "folder": "/bali/",
     "thumb": "thumb.jpg",
     "preview": "preview.md",
-    "post": "post.md"
+    "post": "post.md",
+    "suggestions": ["japan", "cambodia"]
   },
   "japan": {
     "title": "Japan",
@@ -30,7 +32,8 @@
     "folder": "/japan/",
     "thumb": "thumb.jpg",
     "preview": "preview.md",
-    "post": "post.md"
+    "post": "post.md",
+    "suggestions": []
   },
   "cambodia": {
     "title": "Kambodscha",
@@ -41,6 +44,7 @@
     "folder": "/cambodia/",
     "thumb": "thumb.jpg",
     "preview": "preview.md",
-    "post": "post.md"
+    "post": "post.md",
+    "suggestions": ["japan", "bali", "srilanka"]
   }
 }

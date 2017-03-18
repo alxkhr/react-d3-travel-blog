@@ -1,5 +1,5 @@
 ![alt text](./thumb_400.jpg)
 
-## Japan
+## Kambodscha
 
 Preview Text.
