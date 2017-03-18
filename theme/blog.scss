@@ -1,5 +1,6 @@
 @import './colors';
 @import './fonts';
+@import './mixins';
 
 .blog {
   width: 1000px; //TODO responsive
@@ -14,19 +15,11 @@
     text-align: center;
     text-transform: uppercase;
   }
+}
 
-  > p {
-    margin-bottom: 50px; // TODO responsive
-    column-gap: 50px; // TODO responsive
-    column-count: 2; // TODO responsive
-    color: $color-text;
-    font-family: $font-block;
-    font-size: 1.2rem;
-    -moz-column-gap: 50px;
-    -moz-column-count: 2;
-    -webkit-column-gap: 50px;
-    -webkit-column-count: 2;
-  }
+.blog__introduction {
+  @include block-content;
+  margin-bottom: 100px; // TODO responsive
 }
 
 .blog__previews {

@@ -1,5 +1,4 @@
 # Bali
-
 ![alt text](./img_01.jpg)
 
 Testinhalt *kursiv* **fett** [Link](http://alexanderkehr.de)

@@ -1,12 +1,16 @@
 import React from 'react';
 import Preview from './preview';
 import posts from '../content/_posts.json';
+import introduction from '../content/introduction.md';
 import '../theme/blog.scss';
 
 export default function Blog() {
   return (
     <div className="blog">
-      <p>Hier steht ein persönlicher Text über die Autorin, in zwei Spalten. Hier steht ein persönlicher Text über die Autorin, in zwei Spalten. Hier steht ein persönlicher Text über die Autorin, in zwei Spalten. Hier steht ein persönlicher Text über die Autorin, in zwei Spalten. Hier steht ein persönlicher Text über die Autorin, in zwei Spalten. Hier steht ein persönlicher Text über die Autorin, in zwei Spalten.</p>
+      <div
+        className="blog__introduction"
+        dangerouslySetInnerHTML={{ __html: introduction }}
+      />
       <h1>Blog</h1>
       <div className="blog__previews">
         {Object.keys(posts).map(key => {

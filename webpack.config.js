@@ -1,5 +1,23 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const marked = require('marked');
+const renderer = new marked.Renderer();
+
+renderer.image = function(href, title, alt) {
+  var out = '<figure>';
+  out += '<img src="' + href + '" alt="' + alt + '">';
+  if (title) {
+    out += '<figcaption>' + title + '</figcaption>';
+  }
+  out += '</figure>';
+  return out;
+};
+renderer.paragraph = function(text) {
+  if (text.startsWith('<figure') && text.endsWith('</figure>'))
+    return text;
+  else
+    return '<p>' + text + '</p>';
+}
 
 const config = {
   entry: ['./src/index.js', './_redirects'],
@@ -20,7 +38,15 @@ const config = {
         use: 'file-loader'
       }, {
         test: /\.md$/,
-        use: ['html-loader', 'markdown-loader']
+        use: [
+          {
+            loader: "html-loader"
+          },
+          {
+            loader: "markdown-loader",
+            options: { renderer }
+          }
+        ]
       }, {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
