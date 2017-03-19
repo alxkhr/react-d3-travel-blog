@@ -16,8 +16,9 @@ npm start
 
 # Feature Roadmap
 
-- Show and link the blog posts (md support)
-- Comments and tags for blog posts
+- ~~Show and link the blog posts (md support)~~ :heavy_check_mark:
+- Comments, tags, likes and pingbacks for blog posts
+- RSS feed
 - Responsiveness
 - (Eventually) a lightweight CMS to manage the blog posts
 - (Eventually) create pins using the personal Instagram feed
