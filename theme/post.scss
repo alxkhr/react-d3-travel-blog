@@ -2,9 +2,19 @@
 
 .post {
   @include block-content;
+  @include large-headlines;
+}
+
+.post__content {
+  @include two-columns;
+  margin-bottom: 100px; // TODO responsive
 
   img {
     width: 1000px; // TODO responsive
     min-height: 500px; // TODO responsive
   }
+}
+
+.post__suggestions {
+  @include small-headlines;
 }

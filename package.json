@@ -15,6 +15,7 @@
   "author": "Alexander Kehr",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.5",
     "d3-geo": "^1.6.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

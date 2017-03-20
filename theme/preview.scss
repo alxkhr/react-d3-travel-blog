@@ -1,13 +1,30 @@
 @import './mixins';
+@import './colors';
 
 .preview {
-  @include block-content;
   width: 300px; //TODO responsive
   margin-bottom: 50px; // TODO responsive
+}
 
-  h1,
-  h2,
-  h3 {
-    font-size: 1.5em;
+.preview--full-width {
+  display: flex;
+  width: 100%;
+
+  .preview__content {
+    flex: 1 1 auto;
+    margin-left: 50px; // TODO responsive
   }
+}
+
+.preview__image {
+  img {
+    &:hover {
+      outline: 1px solid $color-highlight;
+    }
+  }
+}
+
+.preview__more-link {
+  width: 100%;
+  text-align: right;
 }

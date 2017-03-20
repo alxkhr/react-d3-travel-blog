@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import Preview from './preview';
 import posts from '../content/_posts.json';
 import '../theme/post.scss';
 
@@ -7,7 +8,6 @@ export default class Post extends Component {
     super(props);
     this.state = {
       content: null,
-      previews: [],
     };
     this.ref = null;
     this.meta = posts[props.match.params.postKey];
@@ -36,33 +36,26 @@ export default class Post extends Component {
     import(`../content${folder}${post}`)
       .then(content => this.setState({ content }))
       .catch(err => console.log(`Failed to load markdown file "../content${folder}${post}"`, err));
-    suggestions.map(key => {
-      const { folder: sugFolder, preview: sugPreview } = posts[key];
-      import(`../content${sugFolder}${sugPreview}`)
-        .then(preview => this.setState(({ previews }) => {
-          previews.push(preview);
-          return previews;
-        }))
-        .catch(err => console.log(`Failed to load markdown file "../content${sugFolder}${sugPreview}"`, err));
-    });
   }
 
   render() {
-    const { content, previews } = this.state;
+    const { content } = this.state;
+    const { suggestions } = this.meta;
     return (
-      <div>
+      <div className="post">
         <div
           ref={c => { if (c) this.ref = c; }}
-          className="post"
+          className="post__content"
           dangerouslySetInnerHTML={content ? { __html: content } : undefined}
         />
-        <div>
-          {previews.map(preview => (
-            <div
-              className="post__suggestion"
-              dangerouslySetInnerHTML={{ __html: preview }}
-            />
-          ))}
+        {suggestions && suggestions.length > 0 &&
+          <h1>Empfohlene Artikel</h1>
+        }
+        <div className="post__suggestions">
+          {suggestions.map(key => {
+            const { folder, preview, previewImage } = posts[key];
+            return <Preview fullWidth key={`preview${key}`} {...{ preview, folder, previewImage }} href={`/${key}`} />
+          })}
         </div>
       </div>
     );

@@ -3,26 +3,21 @@
 @import './mixins';
 
 .blog {
+  @include block-content;
   width: 1000px; //TODO responsive
+}
 
-  > h1 {
-    display: block;
-    border-bottom: 1.5px solid $color-text;
-    font-family: $font-title;
-    font-size: 2.4rem;
-    font-weight: normal;
-    letter-spacing: .2em;
-    text-align: center;
-    text-transform: uppercase;
-  }
+.blog__title {
+  @include large-headlines;
 }
 
 .blog__introduction {
-  @include block-content;
+  @include two-columns;
   margin-bottom: 100px; // TODO responsive
 }
 
 .blog__previews {
+  @include small-headlines;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

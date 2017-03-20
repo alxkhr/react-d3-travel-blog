@@ -6,15 +6,6 @@
   font-family: $font-block;
   font-size: 1.2rem;
 
-  p {
-    column-gap: 50px; // TODO responsive
-    column-count: 2; // TODO responsive
-    -moz-column-gap: 50px;
-    -moz-column-count: 2;
-    -webkit-column-gap: 50px;
-    -webkit-column-count: 2;
-  }
-
   h1,
   h2,
   h3 {
@@ -22,21 +13,6 @@
     font-weight: normal;
     letter-spacing: .2em;
     text-transform: uppercase;
-  }
-
-  h1 {
-    display: block;
-    border-bottom: 1.5px solid $color-text;
-    font-size: 2.4rem;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 2.4rem;
-  }
-
-  h3 {
-    font-size: 1.8rem;
   }
 
   a {
@@ -66,5 +42,43 @@
     margin-right: 0;
     margin-left: 0;
     padding: 0;
+  }
+}
+
+@mixin two-columns {
+  p {
+    column-gap: 50px; // TODO responsive
+    column-count: 2; // TODO responsive
+    -moz-column-gap: 50px;
+    -moz-column-count: 2;
+    -webkit-column-gap: 50px;
+    -webkit-column-count: 2;
+  }
+}
+
+@mixin large-headlines {
+  h1 {
+    display: block;
+    margin-top: 100px; // TODO responsive
+    margin-bottom: 50px; // TODO responsive
+    border-bottom: 1.5px solid $color-text;
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@mixin small-headlines {
+  h1,
+  h2,
+  h3 {
+    font-size: 1.5em;
   }
 }

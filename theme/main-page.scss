@@ -1,6 +1,10 @@
 @import './fonts';
 @import './colors';
 
+div {
+  position: relative; // TODO this is not the right place
+}
+
 .main {
   display: flex;
   justify-content: center;
