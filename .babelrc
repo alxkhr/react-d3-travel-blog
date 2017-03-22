@@ -1,10 +1,16 @@
 {
-  "presets": [["env", { "modules": false }], "react"],
-  "plugins": ["syntax-dynamic-import"],
   "env": {
-    "test": {
+    "development": {
       "presets": ["env", "react"],
-      "plugins": ["dynamic-import-node"]
+      "plugins": ["dynamic-import-webpack"]
+    },
+    "test": {
+      "presets": [["env", {"modules": false}], "react"],
+      "plugins": ["transform-es2015-modules-commonjs", "dynamic-import-webpack"]
+    },
+    "production": {
+      "presets": [["env", { "modules": false }], "react"],
+      "plugins": ["dynamic-import-webpack"]
     }
   }
 }
